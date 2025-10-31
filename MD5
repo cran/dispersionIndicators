@@ -1,7 +1,7 @@
-6ddb4066fe74ecd68455d92afccabe31 *DESCRIPTION
+fe12ccb88a0eecb9d7c58831dfc5898e *DESCRIPTION
 fde9de501924cce156dfb58b3fb60f54 *LICENSE
 6d12ab6a7c9e75062c0869d5e1622d2f *NAMESPACE
-198b908b7c542727a96bc7a56837ff8e *NEWS.md
+0371e0c527df30c4a374c378bbb5afed *NEWS.md
 c1fc631d227e71f563779922f4ff7f4f *R/convex_function.R
 831ad5c666e2633a7cc1e2d5d7c47424 *R/icm_function.R
 0b4782c67be46288f590311f6274fee2 *README.md
@@ -24,5 +24,5 @@ e06872e7fa3b88de5ad1e9940aab96eb *man/plot_all_convex_hulls.Rd
 5aa5aeba967b4ded13c546c45ef2df20 *man/save_icm_distances_csv.Rd
 cdd23be04fdbc3867bee157d14c6ec47 *man/single_variable_df_check.Rd
 5b0ae836f07789c44e272956d9831508 *tests/testthat.R
-f7dcaeb6e9e050e9ef7abd43a1ea4c5f *tests/testthat/test-convex_function.R
+8513ec6eda7233b1c6dcba82d48f036d *tests/testthat/test-convex_function.R
 92ba154c27c98b6fc62856b32fa57959 *tests/testthat/test-icm_function.R

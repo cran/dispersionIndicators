@@ -449,6 +449,7 @@ test_that("plot_all_convex_hulls works",
   {
     library(pdftools)
     library(cli)
+    library(png)
     set.seed(101917)
     data <- data.frame(
       batch = rep(c("A", "B", "C"), each = 10),
@@ -483,16 +484,33 @@ test_that("plot_all_convex_hulls works",
       TRUE,
       "global"
     )
+
+    # Test only page 1 of the pdfs by converting to png and hashing
     bitmap_batch <- pdf_render_page(file.path(tmp_dir,"plot_all_test_batchwise.pdf"))
     bitmap_global <- pdf_render_page(file.path(tmp_dir,"plot_all_test_global.pdf"))
-    switch(.Platform$OS.type,
-      "windows" = {
-        expect_equal(hash_raw_md5(bitmap_batch), "61fc229d56539ee16663167c9d5fc3f7")
-        expect_equal(hash_raw_md5(bitmap_global), "e90fd69b670212d8170dbfdcd77e36c1")
+    writePNG(bitmap_batch, target = file.path(tmp_dir, "plot_all_test_batchwise.png"))
+    writePNG(bitmap_global, target = file.path(tmp_dir, "plot_all_test_global.png"))
+    bitmap_batch <- as.raw(readPNG(file.path(tmp_dir, "plot_all_test_batchwise.png")))
+    bitmap_global <- as.raw(readPNG(file.path(tmp_dir, "plot_all_test_global.png")))
+
+    is_R_stable <- function() {
+      return(!grepl("unstable", R.version.string))
+    }
+
+    switch(Sys.info()["sysname"],
+      "Windows" = {
+        if (is_R_stable()){  # This test seems to fail only on R-devel on Windows due to minor rendering differences
+          expect_equal(hash_raw_md5(bitmap_batch), "68ee8d72e106debce2cc73b14ac9d0a8")
+          expect_equal(hash_raw_md5(bitmap_global), "fdea43a93f991161ed4933ffb1bc0c0a")
+        }
       },
-      "unix" = {
-        expect_equal(hash_raw_md5(bitmap_batch), "2a1d8576a0ea9af63d0fa996b2194542")
-        expect_equal(hash_raw_md5(bitmap_global), "a51b98fb0ff70313f01658453907afa0")
+      "Linux" = {
+        expect_equal(hash_raw_md5(bitmap_batch), "b4f4366e4b12a62af13697aa05181ce2")
+        expect_equal(hash_raw_md5(bitmap_global), "1e63d87c255ab14eec6689bcf9b864d3")
+      },
+      "Darwin" = {
+        expect_equal(hash_raw_md5(bitmap_batch), "9ad7981faf2205cd5ce1752027f8d2f5")
+        expect_equal(hash_raw_md5(bitmap_global), "249def7d2a3066c226ebf242e0c51e70")
       }
     )
 
