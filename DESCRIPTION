@@ -1,7 +1,7 @@
 Package: dispersionIndicators
 Title: Indicators for the Analysis of Dispersion of Datasets with
         Batched and Ordered Samples
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: 
     c(
         person("Brice", "Mulot", email = "mulotbrice2@gmail.com", role = "aut"),
@@ -18,6 +18,8 @@ Description: Provides methods for analyzing the dispersion of tabular datasets
     control, for such datasets as the one found in metabololomics studies.
     For more details see Salanon (2024) <doi:10.1016/j.chemolab.2024.105148> and
     Salanon (2025) <doi:10.1101/2025.08.01.668073>.
+URL:
+        https://unh-pfem-gitlab.ara.inrae.fr/packages/dispersion_indicators/
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.3
@@ -26,7 +28,7 @@ Imports: corpcor, ggplot2 (>= 3.5.2), stats, utils
 Config/testthat/edition: 3
 Collate: convex_function.R icm_function.R
 NeedsCompilation: no
-Packaged: 2025-10-31 09:53:37 UTC; ejules
+Packaged: 2025-11-18 15:20:21 UTC; ejules
 Author: Brice Mulot [aut],
   Elfried Salanon [ctb],
   Etienne Jules [aut, cre],
@@ -34,4 +36,4 @@ Author: Brice Mulot [aut],
     l'alimentation et l'environnement) [cph]
 Maintainer: Etienne Jules <etienne.jules@inrae.fr>
 Repository: CRAN
-Date/Publication: 2025-10-31 11:30:02 UTC
+Date/Publication: 2025-11-18 16:00:02 UTC

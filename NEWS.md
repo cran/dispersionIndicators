@@ -22,3 +22,6 @@
 * Fixed some issues encountered on CRAN checking pipelines.
   * The test on output files for convex functions was disabled for unstable version of R under windows OS, due to 
     too much instabilities observed on CRAN pipelines.
+
+# dispersionIndicators 0.1.5
+* Added URL to description
